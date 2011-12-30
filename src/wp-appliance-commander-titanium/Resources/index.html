@@ -1,0 +1,178 @@
+<html>
+	<head>
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap-tabs.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+		<style>
+			body {
+				padding-top: 60px;
+			}
+			.container {
+				padding-top: 10px;
+			}
+		</style>
+		<title>WordPress Appliance Commander</title>
+	</head>
+	<body>
+		<div class="topbar">
+	      <div class="topbar-inner">
+	        <div class="container">
+	          <a class="brand" href="#">WordPress Appliance Commander</a>
+	          <ul class="tabs">
+	            <li class="active"><a href="#appliances">Appliances</a></li>
+	            <li><a href="#settings">Settings</a></li>
+	            <li><a href="#help">Help</a></li>
+	          </ul>
+	        </div>
+	      </div>
+	    </div>
+		
+		<div class="tab-content">
+			<div id="appliances" class="active">
+				<div class="container-fluid">
+					<div class="sidebar">
+					  <ul class="tabs">
+						  <li class="active"><a href="#local_appliance">Local</a></li>
+						  <li><a href="#test_appliance">Test</a></li>
+						  <li><a href="#live_appliance">Live</a></li>
+					  </ul>
+					</div>
+					<div class="content tab-content">
+					  <div class="active" id="local_appliance">
+						  <div class="page-header">
+						    <h1>Local <small>wordpress-appliance-master</small>
+						    	<button class="btn primary" id="connect_local" onclick="connect_local();">Connect</button>
+						    </h1>
+						    
+						    <table class="zebra-striped">
+						    	<tr>
+						    		<td>SSH</td>
+						    		<td>
+						    			<a onclick="open_ssh('mrdavidlaing@wordpress-appliance-master'); return false;">ssh mrdavidlaing@wordpress-appliance-master</a>
+						    		</td>
+						    	</tr>
+						    	<tr>
+						    		<td>DB</td>
+						    		<td>
+						    			<a href="http://127.0.0.1:10080/phpmyadmin">http://127.0.0.1:10080/phpmyadmin</a>
+						    		</td>
+						    	</tr>
+						    	<tr>
+						    		<td>WebDAV</td>
+						    		<td>
+						    			<a href="http://127.0.0.1:10081/mrdavidlaing">http://127.0.0.1:10081/mrdavidlaing</a>
+						    		</td>
+						    	</tr>
+						    	<tr>
+						    		<td>Pressup repos</td>
+						    		<td>
+						    			<table class="bordered-table">
+						    				<tr>
+						    					<td>
+						    						Web-Angle <code>/data/www/WebAngle-WordPress</code>
+						    						<div>Actions here</div>
+						    					</td>
+						    				</tr>
+						    				<tr>
+						    					<td>
+						    						forsitethemes <code>/data/www/forsitethemes</code>
+						    						<div>Actions here</div>
+						    					</td>
+						    				</tr>
+						    			</table>
+						    		</td>
+						    	</tr>
+						    </table>
+						  </div>
+					  </div>
+					  <div id="test_appliance">...</div>
+					  <div id="live_appliance">...</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="settings">
+				<form>
+			        <fieldset>
+			          <legend>Identity - OpenSSH key</legend>
+			          <div class="clearfix">
+			            <label for="xlInput3">UserName</label>
+			            <div class="input">
+			              <input class="xlarge" id="xlInput3" name="xlInput3" size="30" type="text" value="mrdavidlaing">
+			            </div>
+			          </div>
+			          <div class="clearfix">
+			            <label for="textarea">Private Key</label>
+			            <div class="input">
+			              <textarea class="xxlarge" id="id_rsa" name="textarea2" rows="5">
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAyBAtvW9QCBJidr1IOlVbSQg7cKvDv5JeMRBKw9i09LmV1wIU
+G8ePq1s5vvwYSidr683L3IcY98tA/jiYvB7Tp7Lpxie3CKbRW/vfCeLkWYrwPjpv
+P9PAKMDKSR+cezkhLnPjeWDVl62nb95XOf8LprxsMJM/FTPJABQmmEjCYAJ3g0wm
+ffVQjIBOdNVuYVePhWK1w+aYo526MCR9fA8cP+2yafYRaxYnirQknwldgGh9qSPi
+Tt5cubUbY1KvkN9Sy9+kR9AEZ/s2tvg4bxcGNdIUIuO63iQbySzkI2Uds42ByyzO
+lCugJcFaodU623649AA679auFLcvGxjglrTGpwIDAQABAoIBAA5vpG1L7/F1Kie5
+RtH2wMyHTIq3yjszm5pcu5hgNcaG8bn/C2ZpwwMxZPxUAoivSYlNY015biLLRthR
+Sywf6VPrhBTpXrrAFtFVXmW/Ooz/ipBi9Q4dAHuwVahrIIZ/u9Y3RI3IoAD+5dsb
+px2nOrcAV6o1pdKo1vMrgRFyBpyY0Euhk7Ttt1YLStBKZIHB8ANqKP7PZWbB7hUg
+NaBvJYoyYzIVqXBoTFIUy5qr4HC/7SPlQehpsrSE13zh7BVEJC836tKtlfn57VnX
+g8b7Znv10DVejmfWQyusU6o4FRUWCLm+d5x0dBr10lcLLSTyFxZhjqIT5uSLqfvb
+RityFwkCgYEA6ZWafUsnQRac0jOMcZe5+WEcT5Xayyn/ud7d5mIuVOfppKkX/tUu
+r1GGmKcNpgWRxTjd3UATYMoyLrhEP5+OlW3s5afcE1iyDEy29flR41d333mjk6Am
+J9GhopYJV/mmB6FSZrU/8WbsrCWGcImg7tLjsgwp26AGjW6LJiOiaAsCgYEA20MS
+AFOyDwpYJuh+e52UnNXTSbT7LAn5jPRrhefe1M36V6zKnDDLxIgnOueb1tf7zuny
+A6sLj0barOnGjJHBsXAhuxLpWZ3FmikH2A9I3492gjmxaffaK4MTHUC35Gk89xAT
+LFPYwm2Gfui12fU689dYkZIQ6uZzG0j8s6TOkVUCgYB5ANT9HxeAslQe2DFjDvR6
+aYIfAERNhr5A7WEKXcYemd0BPc9+ZbU/gP42yiNZ4/y1rFXSrcTcGSKR7Ub9poxY
+gI9+EM0DAKmLkZoeJj/zg3ZHwF2qtgXODtyquwqwFlWaEkn7ht1PEsB8FRxl5AYI
+chseOwrcCTQbxC41XbReLQKBgGbMLTZmBwcyLF4hhptiJ/jX7zWRWmktTAif14Fy
+UnCnGYXdhyhvYDmGNA5T5CZ4IKDD4imCGetUptWGzQW+mHceQVI57ZmMdMZwEjNk
+ByB5XHB1qA4sm+bmjyGZ5B18kY6rxLF1phyRyQrbA9dqN/d2sRmex7u5y6GxOHjo
+/cf5AoGAGpBsQG9AQFliVqaGEma/I7jSFCnjmoKeRFXndEbN14YaGQUS01FwjnUq
+RncO3czSJebE9qsVct+HtjQ8MFHXEL9LTfI97XS0xI13v6NBtBBMsNITs70e5UW5
+i4Mvf9fS6u+0yT+Pjd3IK/usb2buDgg7fvOnVKGr3JDD94vfpCY=
+-----END RSA PRIVATE KEY-----
+			              </textarea>
+			              <span class="help-block">
+			                Your private key
+			              </span>
+			            </div>
+			          </div><!-- /clearfix -->
+			          <div class="clearfix">
+			            <label for="textarea">Public Key</label>
+			            <div class="input">
+			              <textarea class="xxlarge" id="id_rsa" name="textarea2" rows="3">
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIEC29b1AIEmJ2vUg6VVtJCDtwq8O/kl4xEErD2LT0uZXXAhQbx4+rWzm+/BhKJ2vrzcvchxj3y0D+OJi8HtOnsunGJ7cIptFb+98J4uRZivA+Om8/08AowMpJH5x7OSEuc+N5YNWXradv3lc5/wumvGwwkz8VM8kAFCaYSMJgAneDTCZ99VCMgE501W5hV4+FYrXD5pijnbowJH18Dxw/7bJp9hFrFieKtCSfCV2AaH2pI+JO3ly5tRtjUq+Q31LL36RH0ARn+za2+DhvFwY10hQi47reJBvJLOQjZR2zjYHLLM6UK6AlwVqh1Trbfrj0ADrv1q4Uty8bGOCWtMan me@myPC.com
+			              </textarea>
+			              <span class="help-block">
+			                Your public key
+			              </span>
+			            </div>
+			          </div><!-- /clearfix -->
+			          <div class="actions">
+			            <input type="submit" class="btn primary" value="Save changes">&nbsp;<button type="reset" class="btn">Cancel</button>
+			          </div>
+			        </fieldset>
+			      </form>
+			</div>
+			
+			<div id="help">
+				Help!
+			</div>
+		</div>
+		
+		
+		<script>
+		
+		  $(function () {
+		    $('.tabs').tabs();
+		    $('#.tabs').bind('change', function (e) {
+			  e.target // activated tab
+			  e.relatedTarget // previous tab
+			});
+			
+		  })
+		</script>
+	</body>
+</html>
